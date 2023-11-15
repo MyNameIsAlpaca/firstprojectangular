@@ -1,0 +1,36 @@
+<div>
+    <h1>Titolo di prova {{testTitle}}</h1>
+    <button (click)="updateTitle()">Aggiorna titolo</button>
+    <button [disabled]="disabledTest" [style]="testStyle" [ngClass]="isOK ? 'testClass' : 'testNoClass'">Bottone disabilitato</button>
+    <div *ngIf="isOK; then ok else KO"></div>
+    <ng-template #ok>
+      <label for="dd">
+        OK
+      </label>
+    </ng-template>
+    <ng-template #KO>
+      <label for="dd">
+        Va bene
+      </label>
+    </ng-template>
+    <ul>
+      <li *ngFor="let movie of movieList, let idx = index, let firstYear = first">
+      Film: {{movie.title}} - {{movie.year}} - {{idx}} - {{firstYear}}
+      </li>
+    </ul>
+    <hr>
+    <ul *ngFor="let movie of movieList" [ngSwitch]="movie.type">
+      <li *ngSwitchCase="'triller'" style="color: red; background-color: black;">thriller: {{movie.title}}</li>
+      <li *ngSwitchCase="'drama'" style="color: pink; background-color: black;">drama: {{movie.title}}</li>
+      <li *ngSwitchDefault style="color: grey;">Altro: {{movie.title}}</li>
+    </ul>
+    <hr>
+    <button (click)="InsertEmployee()">Aggiungi dipendente</button>
+    <li *ngFor="let em of empList">
+      Dipententi: {{em.Name}}
+    </li>
+    <hr>
+    <p>{{movieList|json}}</p>
+    <p>{{num1 | number: '1.2'}}</p>
+    <p>{{today | date:'shortDate'}}</p>
+  </div>

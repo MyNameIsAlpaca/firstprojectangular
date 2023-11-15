@@ -1,1 +1,31 @@
-<p>employees works!</p>
+<h1>Ecco i tuoi dipendenti:</h1>
+<div class="container">
+    <ul class="employeesContent">
+        <li *ngFor="let employee of employeesList" class="singleEmployee">
+            <div class="backgroundSingle">
+                <p>Matricola: {{employee.matricola}}</p>
+                <p>Nome: {{employee.nominativo}}</p>
+                <p>Telefono: {{employee.telefono}}</p>
+                <p>Attività: 
+                    <span>
+                    <div *ngIf="employee.attivitaDipendentes.length > 0; then si else no"></div>
+                    <ng-template #si>
+                      <div class="activityContainer">
+                        <div *ngFor="let singleActivity of employee.attivitaDipendentes">
+                            <span>{{singleActivity.attivita}} - </span>
+                            <span>{{singleActivity.dataAttivita| date:'shortDate'}} - </span>
+                            <span>{{singleActivity.ore}} ore</span>
+                        </div>
+                      </div>
+                    </ng-template>
+                    <ng-template #no>
+                      <div class="activityContainer">
+                        N/D
+                      </div>
+                    </ng-template>
+                    </span>
+                </p>
+            </div>
+        </li>
+    </ul>
+</div>
