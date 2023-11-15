@@ -15,8 +15,8 @@
     </label>
   </ng-template>
   <ul>
-    <li *ngFor="let movie of movieList">
-    Film: {{movie.title}} - {{movie.year}}
+    <li *ngFor="let movie of movieList, let idx = index, let firstYear = first">
+    Film: {{movie.title}} - {{movie.year}} - {{idx}} - {{firstYear}}
     </li>
   </ul>
   <hr>
@@ -29,8 +29,13 @@
   <button (click)="InsertEmployee()">Aggiungi dipendente</button>
   <li *ngFor="let em of empList">
     Dipententi: {{em.Name}}
-    </li>
+  </li>
+  <hr>
+  <p>{{movieList|json}}</p>
+  <p>{{num1 | number: '1.2'}}</p>
+  <p>{{today | date:'shortDate'}}</p>
 </div>
 
+<app-employees></app-employees>
 
 <router-outlet></router-outlet>

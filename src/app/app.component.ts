@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import {FormsModule} from '@angular/forms'
 import { Employee } from './app.employee'
+import { EmployeesComponent } from './features/employees/employees.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, FormsModule],
+  imports: [CommonModule, RouterOutlet, FormsModule, EmployeesComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -22,6 +23,8 @@ export class AppComponent {
   testClass = 'backgroundRed';
   isOK = true;
   empList: any[] = [];
+  num1: number = 12.3;
+  today = new Date();
 
   movieList: any[] = [
     {
