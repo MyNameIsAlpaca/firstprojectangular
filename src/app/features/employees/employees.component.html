@@ -3,10 +3,10 @@
     <ul class="employeesContent">
         <li *ngFor="let employee of employeesList" class="singleEmployee">
             <div class="backgroundSingle">
-                <p>Matricola: {{employee.matricola}}</p>
-                <p>Nome: {{employee.nominativo}}</p>
-                <p>Telefono: {{employee.telefono}}</p>
-                <p>Attività: 
+                <p class="empInfo">Matricola: {{employee.matricola}}</p>
+                <p class="empInfo">Nome: {{employee.nominativo}}</p>
+                <p class="empInfo">Telefono: {{employee.telefono}}</p>
+                <p class="empInfo">Attività: 
                     <span>
                     <div *ngIf="employee.attivitaDipendentes.length > 0; then si else no"></div>
                     <ng-template #si>

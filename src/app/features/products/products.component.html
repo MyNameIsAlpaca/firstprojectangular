@@ -1,1 +1,19 @@
 <p>Questi sono i prodotti disponibili:</p>
+<div class="productContainer">
+    <div *ngFor="let singleProduct of productsList">
+        <div class="productCard">
+            <div class="title">
+                {{singleProduct.name}}
+                <div class="brand">
+                    {{singleProduct.brand}}
+                </div>
+            </div>
+            <div class="price">
+                {{singleProduct.price}}€
+            </div>
+            <div class="info">
+                {{singleProduct.desc}}
+            </div>
+        </div>
+    </div>
+</div>
