@@ -1,10 +1,22 @@
 .navContainer{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
+    padding: 20px 40px;
     .linkContainer{
         display: flex;
         gap: 20px;
+        text-align: center;
+        button{
+            background-color: black;
+            color: white;
+            padding: 5px 20px 5px 20px;
+            border-radius: 20px;
+        }
+        button:hover{
+            background-color: white;
+            color: black;
+        }
     }
 }
