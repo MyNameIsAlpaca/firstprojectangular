@@ -1,0 +1,28 @@
+<div style="border: 3px;border-style: ridge;">
+<input #enrollment type="text" placeholder="inserire matricola"(keydown.enter)="insertSingleInput($event)">
+<input #names type="text" placeholder="inserire nominativo"(keydown.enter)="insertSingleInput($event)">
+<button (click)="InsertData(enrollment,names)">Conferama</button>
+</div>
+
+<hr>
+
+<p *ngIf="newEmp.name.length > 0">Dipendente: {{newEmp.enrollment}} - {{newEmp.name}}</p>
+
+<li *ngFor="let emp of newEmps">
+Dipendente: {{emp.name}} - {{emp.enrollment}}
+</li>
+
+<pre>
+    {{formEmployee.value | json}}
+    {{formEmployee.valid}} Valido,
+    {{formEmployee.dirty}} Sporco
+    {{formEmployee.touched}} Toccato
+</pre>
+<div>ciaao</div>
+<div *ngIf="formEnrollment.errors?.['required']">enrollment is required.</div>
+
+<form #formEmployee="ngForm" (submit)="InsertDataForm()">
+    <input type="text" name="enrollment" placeholder="matricola" #formEnrollment="ngModel" [(ngModel)]="newEmp.enrollment" required>
+    <input type="text" name="name" placeholder="nome" [(ngModel)]="newEmp.name" #formName="ngModel" required> 
+    <button type="submit" [disabled]="formEmployee.invalid">Conferma</button>
+</form>

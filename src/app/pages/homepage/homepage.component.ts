@@ -1,41 +1,26 @@
-import { Component, Input,Output,EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FormsModule} from '@angular/forms'
+import { EmployeesComponent } from '../../features/employees/employees.component';
 
 @Component({
-  selector: 'app-employees',
+  selector: 'app-homepage',
   standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './employees.component.html',
-  styleUrl: './employees.component.scss'
+  imports: [CommonModule, EmployeesComponent],
+  templateUrl: './homepage.component.html',
+  styleUrl: './homepage.component.scss'
 })
-export class EmployeesComponent {
-    @Input() employeesList: any[] = []
-    @Output() newEmployee = new EventEmitter<object>();
+export class HomepageComponent {
+  newEmployee: any;
 
-    newEmployPhone?: number = undefined;
-    newEmployMatricola: string = ''
-    newEmployName: string = '';
-    newEmployAge?: number = undefined;
-    newEmployRole: string = '';
-
-    sendNewEmployee(){
-        this.newEmployee.emit({
-            "matricola": this.newEmployMatricola,
-            "nominativo": this.newEmployName,
-            "telefono": this.newEmployPhone,
-            "age": this.newEmployAge,
-            "role": this.newEmployRole,
-            "attivitaDipendentes": []
-        })
-        this.newEmployAge = undefined;
-        this.newEmployName = '';
-        this.newEmployRole = '';
-    }
-  /* employeesList = 
+  printNewEmployee(newEmp: any){
+    this.newEmployee = newEmp;
+    console.log(newEmp)
+    this.employeesListHomepage.push(newEmp)
+  }
+  employeesListHomepage = 
   [
     {
-      "matricola": "F022",
+      "matricola": "F023",
       "nominativo": "Eloisia Significata",
       "ruolo": "Operaio",
       "reparto": "Addetta Servizio Mensa",
@@ -311,5 +296,5 @@ export class EmployeesComponent {
     "telefono": "3303942",
     "attivitaDipendentes": []
     }
-  ] */
+  ]
 }

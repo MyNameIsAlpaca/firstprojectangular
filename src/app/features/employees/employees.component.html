@@ -1,4 +1,15 @@
+<h3>Aggiungi un dipendente:</h3>
+<div style="display: flex; align-items: center; padding: 20px;" >
+  <input type="text" placeholder="nome" required [(ngModel)]="newEmployName">
+  <input type="text" placeholder="eta" required [(ngModel)]="newEmployAge">
+  <input type="text" placeholder="ruolo" required [(ngModel)]="newEmployRole">
+  <input type="text" placeholder="telefono" required [(ngModel)]="newEmployPhone">
+  <input type="text" placeholder="Matricola" required [(ngModel)]="newEmployMatricola">
+  <button (click)="sendNewEmployee()">Send</button>
+</div>
+
 <h1>Ecco i tuoi dipendenti:</h1>
+
 <div class="container">
     <ul class="employeesContent">
         <li *ngFor="let employee of employeesList" class="singleEmployee">

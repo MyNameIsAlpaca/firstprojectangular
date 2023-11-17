@@ -1,0 +1,9 @@
+<h1 style="text-align: center;">Sei nella homepage</h1>
+<div *ngIf="newEmployee">
+    <h2>Hai aggiunto:</h2>
+    {{newEmployee.name}} - 
+    {{newEmployee.age}}
+</div>
+
+
+<app-employees [employeesList]="employeesListHomepage" (newEmployee)="printNewEmployee($event)"></app-employees>
