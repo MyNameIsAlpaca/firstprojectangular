@@ -23,6 +23,17 @@ export class NewEmployeeComponent {
 
   constructor(private wService: EmployeeCallsService) {}
 
+  getEmployeeFromServiceById(Matricola: string){
+    this.wService.getEmployeeDataById(Matricola).subscribe({
+      next: (data: any) =>{
+        console.log(data)
+      },
+      error: (err: any) =>{
+        console.log(err)
+      }
+    })
+  }
+
   getEmployeeFromService(){
     this.wService.getEmployeeData().subscribe({
       next: (data: any) => {

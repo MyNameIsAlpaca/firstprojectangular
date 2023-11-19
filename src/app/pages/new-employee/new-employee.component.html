@@ -1,8 +1,8 @@
 <button (click)="getEmployeeFromService()">Ottieni dipendenti [httpGet]</button>
 
 <p *ngIf="employeesListServer.length > 0">Lista dei dipendenti arrivata</p>
-
-
+<input type="text" #SearchMatricola>
+<button (click)="getEmployeeFromServiceById(SearchMatricola.value)">Ottieni con id</button>
 <hr>
 
 <div style="border: 3px;border-style: ridge;">
